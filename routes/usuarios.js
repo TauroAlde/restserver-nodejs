@@ -2,24 +2,24 @@ const { Router } = require('express');
 
 const { userPut, userPost, userDelete } = require('../schemes/user');
 
-const { usuariosGet,
-        usuariosPut,
-        usuariosPost,
-        usuariosDelete,
-        usuariosPatch } = require('../controllers/usuarios');
+const { getUsers,
+        postUsers,
+        putUsers,
+        patchUsers,
+        deleteUsers } = require('../controllers/usuarios');
 
 const router = Router();
 
 
-router.get('/', usuariosGet );
+router.get('/', getUsers );
 
-router.put('/:id', userPut, usuariosPut );
+router.put('/:id', userPut, putUsers );
 
-router.post('/', userPost, usuariosPost );
+router.post('/', userPost, postUsers );
 
-router.delete('/:id', userDelete, usuariosDelete );
+router.delete('/:id', userDelete, deleteUsers );
 
-router.patch('/', usuariosPatch );
+router.patch('/', patchUsers );
 
 
 

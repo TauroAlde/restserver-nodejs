@@ -4,7 +4,7 @@ const bcryptjs = require('bcryptjs');
 const { countDocuments } = require('../models/user');
 const user = require('../models/user');
 
-const usuariosGet = async(req = request, res = response) => {
+const getUsers = async(req , res ) => {
 
     const { limit = 5, from = 0} = req.query;
     const query = {state: true}
@@ -22,7 +22,7 @@ const usuariosGet = async(req = request, res = response) => {
     });
 }
 
-const usuariosPost = async(req, res = response) => {
+const postUsers = async(req, res ) => {
 
 
     const { name, email, password, role } = req.body;
@@ -40,7 +40,7 @@ const usuariosPost = async(req, res = response) => {
     });
 }
 
-const usuariosPut = async(req, res = response) => {
+const putUsers = async(req, res) => {
 
     const { id } = req.params;
 
@@ -58,13 +58,13 @@ const usuariosPut = async(req, res = response) => {
     res.json(user);
 }
 
-const usuariosPatch = (req, res = response) => {
+const patchUsers = (req, res) => {
     res.json({
         msg: 'patch API - usuariosPatch'
     });
 }
 
-const usuariosDelete = async(req, res = response) => {
+const deleteUsers = async(req, res ) => {
 
     const {id} = req.params;
 
@@ -81,9 +81,9 @@ const usuariosDelete = async(req, res = response) => {
 
 
 module.exports = {
-    usuariosGet,
-    usuariosPost,
-    usuariosPut,
-    usuariosPatch,
-    usuariosDelete,
+    getUsers,
+    postUsers,
+    putUsers,
+    patchUsers,
+    deleteUsers
 }
