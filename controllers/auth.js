@@ -15,21 +15,21 @@ const login = async(req, res = response) => {
     const user = await User.findOne({email});
     if(!user) {
       return res.status(400).json({
-        msg: 'User / Password there are not correct-email'
+        msg: 'There are not correct-email'
       });
     }
     //el usuario esta activo en la bd?
     
     if(!user.status) {
       return res.status(400).json({
-        msg: 'User / Password there are not correct-status: false'
+        msg: 'There are not correct status: false'
       });
     }
     //verificar la contraseña
     const validPassword = bcryptjs.compareSync( password, user.password );
     if(!validPassword) {
       return res.status(400).json({
-        msg: 'User / Password there are not correct-password'
+        msg: 'There are not correct password'
       });
     }
 

@@ -1,8 +1,4 @@
-const { response } = require("express")
-
-
-
-const adminRole = ( req, res=response, next ) => {
+const adminRole = ( req, res, next ) => {
 
   if( !req.user ){
     return res.status(500).json({
@@ -23,7 +19,7 @@ const adminRole = ( req, res=response, next ) => {
 
 const rolesAllowed = (...roles) => {
 
-  return  ( req, res = response, next ) => {
+  return  ( req, res, next ) => {
     if( !req.user ){
       return res.status(500).json({
         msg: ' You want to validate the role without the token '

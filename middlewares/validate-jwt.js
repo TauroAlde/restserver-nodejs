@@ -1,9 +1,8 @@
-const { response } = require('express');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
 
-const validateJWT = async( req = request, res = response, next ) => {
+const validateJWT = async( req, res, next ) => {
 
   const token = req.header('authorization-token');
 
@@ -21,14 +20,14 @@ const validateJWT = async( req = request, res = response, next ) => {
 
     if( !user ) {
       return res.status(401).json({
-        msg: 'User not exist'
+        msg: 'User does not exist'
       });
     }
 
     //verificar si el user esta como true
     if( !user.status ) {
       return res.status(401).json({
-        msg: 'This token not is valid'
+        msg: 'This token is invalid'
       });
     };
 
