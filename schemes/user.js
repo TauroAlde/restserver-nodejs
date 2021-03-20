@@ -51,14 +51,14 @@ const userFields = {
 
 };
 
-const userPut = [
+const userPutchema = [
   userFields.id,
   userFields.idExist,
   userFields.role,
   validateFields
 ];
 
-const userPost = [
+const userCreateSchema = [
   userFields.name,
   userFields.password,
   userFields.email,
@@ -67,7 +67,7 @@ const userPost = [
   validateFields
 ];
 
-const userDelete = [
+const userDeleteSchema = [
   validateJWT,
   userFields.id,
   userFields.idExist,
@@ -75,7 +75,7 @@ const userDelete = [
 ];
 
 module.exports = {
-  userPut,
-  userPost,
-  userDelete
+  userPutchema,
+  userCreateSchema,
+  userDeleteSchema
 }

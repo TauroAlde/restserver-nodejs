@@ -1,25 +1,29 @@
 const { Router } = require('express');
 
-const { userPut, userPost, userDelete } = require('../schemes/user');
+const {
+  userPutchema,
+  userCreateSchema,
+  userDeleteSchema
+} = require('../schemes/user');
 
-const { getUsers,
-        postUsers,
+const { usersGet,
+        createUser,
         putUsers,
-        patchUsers,
+        updateUser,
         deleteUsers } = require('../controllers/usuarios');
 
 const router = Router();
 
 
-router.get('/', getUsers );
+router.get('/', usersGet );
 
-router.put('/:id', userPut, putUsers );
+router.put('/:id', userPutchema, putUsers );
 
-router.post('/', userPost, postUsers );
+router.post('/', userCreateSchema, createUser );
 
-router.delete('/:id', userDelete, deleteUsers );
+router.delete('/:id', userDeleteSchema, deleteUsers );
 
-router.patch('/', patchUsers );
+router.patch('/', updateUser );
 
 
 
