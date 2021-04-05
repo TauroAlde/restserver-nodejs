@@ -63,11 +63,27 @@ const existProductForId = async(id) => {
 
 }
 
+
+const collectionPermitted = (collection = '', collections = []) => {
+
+  const incluid = collections.includes(collection);
+
+  if( !incluid ) {
+    throw new Error(`The ${collection} not is permitted, onlie this collection are permitted ${collections}`)
+  }
+
+  return true;
+
+
+}
+
+
 module.exports  = {
   validRole,
   existEmail,
   existUserForId,
   existCategoryForId,
   existNameCategory,
-  existProductForId
+  existProductForId,
+  collectionPermitted
 }
